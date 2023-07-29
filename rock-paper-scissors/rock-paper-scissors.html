@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-  <title>Document</title>
+  <title>rock-paper-scissors-game</title>
 </head>
 <body>
   <p>Rock Paper Scissors</p>
@@ -13,8 +13,11 @@
   <button onclick="playgame('scissors');">
   Scissors
   </button>
+  <p class="js-result"></p>
+  <p class="js-move"></p>
+  <p class="game-score"></p>
   <button onclick="reset();
-  alert('Game reset')">
+  showScore();">
     Reset Score
   </button>
   <script>
@@ -24,6 +27,11 @@
       lose:0,
       tie:0
     };
+    function showScore(){
+    let totScore=document.querySelector('.game-score');
+    totScore.innerHTML=(`Wins:${score.win},Losses:${score.lose},Ties:${score.tie}`);
+    }
+    showScore();
     function reset(){
       score.win=0;
       score.lose=0;
@@ -69,8 +77,11 @@
     score.tie+=1;
   }
   localStorage.setItem('score',JSON.stringify(score));
-  alert(`You picked ${playermove}. Computer picked ${computerPick}.${result}
-Wins:${score.win},Losses:${score.lose},Ties:${score.tie}`);
+  document.querySelector('.js-result')
+    .innerHTML=(result);
+  document.querySelector('.js-move')
+    .innerHTML=(`You picked ${playermove} - Computer picked ${computerPick}.`);
+  showScore();
     }  
     function randomPick(){
     const randomNum=Math.random();

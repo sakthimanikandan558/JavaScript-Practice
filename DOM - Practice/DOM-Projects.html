@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <title>DOM-Projects</title>
+</head>
+<body>
+    <link rel="stylesheet" href="style.css">
+    <p>YouTube Subscribe Button</p>
+    <button class="yt-button" onclick="
+    ytChange();">Subscribe
+    </button>
+
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 = +$10 shipping.</p>
+    <p>Orders over $40 = FREE shipping. </p>
+    <input placeholder="Cost of order"
+    class="amazon" onkeydown="
+    checkEvent(event);">
+    <button class="mybutton" onclick="
+    amazonTotal();
+    ">Calculate</button>
+    <p class="tot-value"></p>
+
+    <script>
+        function ytChange(){
+        let ytButton=document.querySelector('.yt-button');
+        if(ytButton.innerHTML==='Subscribe'){
+            ytButton.innerHTML=(`Subscribed`);
+            ytButton.classList.add('new-button');
+        }
+        else{
+            ytButton.innerHTML=(`Subscribe`);
+            ytButton.classList.remove('new-button');
+        }
+        }   
+
+        function amazonTotal(){
+            const amazon=document.querySelector('.amazon');
+            let val=Number(amazon.value);
+            if(val<40){
+                val+=10;
+            }
+            document.querySelector('.tot-value').innerHTML=(`$${val}`);
+
+        }
+        function checkEvent(event){
+            let val=event.key;
+            if(val=='Enter'){
+                amazonTotal();
+            }
+        }
+    </script>
+</body>
+</html>

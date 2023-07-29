@@ -1,0 +1,33 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.yt-button{
+    background-color: black;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 50px;
+    margin-bottom: 50px;
+}
+.new-button{
+    background: rgb(240, 240, 240);
+    color: black;
+}
+.amazon{
+    font-size: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.mybutton{
+    background-color: green;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding:12px;
+    font-size: 15px;
+}
