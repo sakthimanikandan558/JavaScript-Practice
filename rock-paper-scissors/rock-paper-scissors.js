@@ -15,7 +15,25 @@ function reset(){
   score.tie=0;
   localStorage.removeItem('score');
 }
-
+let isAuto=false;
+let intervelId;
+  function autoPlay(){
+    if(!isAuto){
+      intervelId=setInterval(()=>{
+        const playermove=randomPick();
+        playgame(playermove);
+      },1200);
+      isAuto=true; 
+      const autoButton=document.querySelector('.auto-button');
+      autoButton.innerHTML=('Stop');
+    }
+    else{
+      clearInterval(intervelId);
+      isAuto=false;
+      const autoButton=document.querySelector('.auto-button');
+      autoButton.innerHTML=('Auto Play');
+    }
+  }
 function playgame(playermove){
 const computerPick=randomPick();
 let result='';
